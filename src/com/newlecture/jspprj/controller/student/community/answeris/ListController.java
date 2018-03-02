@@ -33,34 +33,31 @@ public class ListController extends HttpServlet{
          int lastPage = 1;
          
       // 요청한 page 값이 있을 경우 기본값을 대치함.
-      String page_ = request.getParameter("p");
-      if (page_ != null && !page_.equals(""))
-         page = Integer.parseInt(page_);
+		String page_ = request.getParameter("p");
+		if (page_ != null && !page_.equals(""))
+			page = Integer.parseInt(page_);
 
-      AnswerisDao answerisDao = new JdbcAnswerisDao();
-      int count = answerisDao.getCount();
+		AnswerisDao answerisDao = new JdbcAnswerisDao();
+		int count = answerisDao.getCount();
 
-      if (count > 0) {
-         lastPage = count / 15;
-         if (count % 15 > 0)
-            lastPage++;
-      }
+		if (count > 0) {
+			lastPage = count / 15;
+			if (count % 15 > 0)
+				lastPage++;
+		}
 
-      int off = (page - 1) % 5;
-      int startNum = page - off;
+		int off = (page - 1) % 5;
+		int startNum = page - off;
 
-         
-      List<AnswerisView> list = answerisDao.getList(page);
+		List<AnswerisView> list = answerisDao.getList(page);
 
-      request.setAttribute("list", list);
-      request.setAttribute("count", count);
-      request.setAttribute("lastPage", lastPage);
-      request.setAttribute("startNum", startNum);
+		request.setAttribute("list", list);
+		request.setAttribute("count", count);
+		request.setAttribute("lastPage", lastPage);
+		request.setAttribute("startNum", startNum);
       
-         
-        /* RequestDispatcher dispatcher = 
-               request.getRequestDispatcher("/WEB-INF/views/student/community/answeris/list.jsp");         
-         dispatcher.forward(request, response);*/
+		/*RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/student/community/answeris/list.jsp");
+		dispatcher.forward(request, response);*/
          
 
       // tiles 2.x 버전에서 사용하던 방법
@@ -72,8 +69,8 @@ public class ListController extends HttpServlet{
        */
 
       // tiles 3.x 버전에서 사용하는 방법
-      ApplicationContext applicationContext = ServletUtil
-            .getApplicationContext(request.getSession().getServletContext());
+		
+      ApplicationContext applicationContext = ServletUtil.getApplicationContext(request.getSession().getServletContext());
       TilesContainer container = TilesAccess.getContainer(applicationContext);
       ServletRequest servletRequest = new ServletRequest(applicationContext, request, response);
       container.render("student.community.answeris.list", servletRequest);
