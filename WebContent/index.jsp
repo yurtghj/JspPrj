@@ -2,6 +2,8 @@
 <%@page import="com.newlecture.jspprj.dao.jdbc.JdbcAnswerisDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<c:set var="ctx" value="${pageContext.request.servletContext.contextPath }"/> 
 
 <%
 AnswerisDao a = new JdbcAnswerisDao();
@@ -11,8 +13,8 @@ AnswerisDao a = new JdbcAnswerisDao();
 <head>
 <meta charset="UTF-8">
 <title>공지사항목록</title>
-<link href="css/layout.css" type="text/css" rel="stylesheet" />
-<link href="css/index.css" type="text/css" rel="stylesheet" />
+<link href="/css/layout.css" type="text/css" rel="stylesheet" />
+<link href="/css/index.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<!-- header 부분 -->
@@ -37,10 +39,10 @@ AnswerisDao a = new JdbcAnswerisDao();
 			<nav id="main-menu">
 				<h1>메인메뉴</h1>
 				<ul>
-					<li><a href="guide">학습가이드</a></li>
+					<li><a href="/guide">학습가이드</a></li>
 					
-					<li><a href="course">강좌선택</a></li>
-					<li><a href="answeris/index.jsp">AnswerIs</a></li>					
+					<li><a href="/course">강좌선택</a></li>
+					<li><a href="/answeris/index.jsp">AnswerIs</a></li>					
 				</ul>
 			</nav>
 
@@ -82,10 +84,10 @@ AnswerisDao a = new JdbcAnswerisDao();
 				<nav id="member-menu" class="linear-layout">
 					<h1 class="hidden">고객메뉴</h1>
 					<ul class="linear-layout">
-						<li><a href="student/index.jsp"><img
-								src="images/txt-mypage.png" alt="마이페이지" /></a></li>
+						<li><a href="/student/index.jsp"><img
+								src="/images/txt-mypage.png" alt="마이페이지" /></a></li>
 						<li><a href="/customer/notice"><img
-								src="images/txt-customer.png" alt="고객센터" /></a></li>
+								src="/images/txt-customer.png" alt="고객센터" /></a></li>
 					</ul>
 				</nav>
 
@@ -94,10 +96,10 @@ AnswerisDao a = new JdbcAnswerisDao();
 
 	</div>
 	<div class="search-button">
-		<img src="images/ic_search_black_24dp_1x.png" />
+		<img src="/images/ic_search_black_24dp_1x.png" />
 	</div>
 	<div class="more-vert-button">
-		<img src="images/ic_more_vert_black_24dp_1x.png" />
+		<img src="/images/ic_more_vert_black_24dp_1x.png" />
 	</div>
 </header>
 	<!-- --------------------------- <body> --------------------------------------- -->
@@ -117,8 +119,8 @@ AnswerisDao a = new JdbcAnswerisDao();
 		
 			
 			<li class="banner1">
-				<a href="customer/event/1">
-					<img src="admin/board/event/1/banner-java.png" data-id="1" style="cursor: pointer;" />
+				<a href="/customer/event/1">
+					<img src="/admin/board/event/1/banner-java.png" data-id="1" style="cursor: pointer;" />
 				</a>
 			</li>
 		
@@ -146,7 +148,7 @@ AnswerisDao a = new JdbcAnswerisDao();
 		<section class="guide">
 			<h1 class="title">강의 플레이어 사용방법 안내</h1>
 			<div class="margin-top">
-				<a href="customer/faq/1"><img src="images/customer/installInfo.png" /></a>
+				<a href="/customer/faq/1"><img src="images/customer/installInfo.png" /></a>
 			</div>
 			<!-- <div>
             2
@@ -167,14 +169,14 @@ AnswerisDao a = new JdbcAnswerisDao();
 				
 				<li>
 					<span class="notice-title">
-						<a href="customer/notice/2">sdsdsd</a>
+						<a href="/customer/notice/2">sdsdsd</a>
 					</span>
 					<span>2018-02-03</span>
 				</li>
 				
 				<li>
 					<span class="notice-title">
-						<a href="customer/notice/1">뉴렉처 시스템이 달라졌습니다.</a>
+						<a href="/customer/notice/1">뉴렉처 시스템이 달라졌습니다.</a>
 					</span>
 					<span>2018-02-02</span>
 				</li>
@@ -201,7 +203,7 @@ AnswerisDao a = new JdbcAnswerisDao();
 			</div>
 			<div class="title">
 			
-				<a href="answeris/1" class="-text- dark-gray">
+				<a href="/answeris/1" class="-text- dark-gray">
 					<span class="color-orange text-strong text-indent">NEW : </span>
 					문제없던 톰캣 서버에서 다음과 같은 오류가 발생하면서 계속해서 시작오류가 발생한다면...
 				</a>
@@ -329,12 +331,12 @@ AnswerisDao a = new JdbcAnswerisDao();
 					
 			<li class="item-course normal new">
 				<div>
-					<a href="course/8"><img src="course/8/oracle.png" /></a>
+					<a href="/course/8"><img src="/course/8/oracle.png" /></a>
 					
 				</div>
 				<div>
 					<div>
-						<a href="course/8"><span class="text-strong text-ellipsis">Oracle SQL 프로그래밍</span></a>
+						<a href="/course/8"><span class="text-strong text-ellipsis">Oracle SQL 프로그래밍</span></a>
 					</div>
 					<div class="price">
 						<span class="normal ">
@@ -359,12 +361,12 @@ AnswerisDao a = new JdbcAnswerisDao();
 					
 			<li class="item-course normal normal">
 				<div>
-					<a href="course/7"><img src="course/7/spring.png" /></a>
+					<a href="/course/7"><img src="/course/7/spring.png" /></a>
 					
 				</div>
 				<div>
 					<div>
-						<a href="course/7"><span class="text-strong text-ellipsis">스프링 3.x MVC 웹 프로그래밍</span></a>
+						<a href="/course/7"><span class="text-strong text-ellipsis">스프링 3.x MVC 웹 프로그래밍</span></a>
 					</div>
 					<div class="price">
 						<span class="normal ">
@@ -388,12 +390,12 @@ AnswerisDao a = new JdbcAnswerisDao();
 					
 			<li class="item-course normal normal">
 				<div>
-					<a href="course/6"><img src="course/6/jsp.png" /></a>
+					<a href="/course/6"><img src="/course/6/jsp.png" /></a>
 				
 				</div>
 				<div>
 					<div>
-						<a href="course/6"><span class="text-strong text-ellipsis">자바 서블릿/JSP 프로그래밍</span></a>
+						<a href="/course/6"><span class="text-strong text-ellipsis">자바 서블릿/JSP 프로그래밍</span></a>
 					</div>
 					<div class="price">
 						<span class="normal ">
@@ -417,12 +419,12 @@ AnswerisDao a = new JdbcAnswerisDao();
 					
 			<li class="item-course normal event">
 				<div>
-					<a href="course/1"><img src="course/1/computer.png" /></a>
+					<a href="/course/1"><img src="/course/1/computer.png" /></a>
 					
 				</div>
 				<div>
 					<div>
-						<a href="course/1"><span class="text-strong text-ellipsis">컴퓨터 프로그래밍</span></a>
+						<a href="/course/1"><span class="text-strong text-ellipsis">컴퓨터 프로그래밍</span></a>
 					</div>
 					<div class="price">
 						<span class="normal deprecated">
@@ -460,11 +462,11 @@ AnswerisDao a = new JdbcAnswerisDao();
 <div class="content-container">
 	<h3 class="-text- center green bold">협력업체</h3>
 	<ul class="-list- horizontal center -margin- bottom top b20">
-		<li><img src="images/namoolab.png" /></li>
-		<li><img src="images/notepubs.png" /></li>
-		<li><img src="images/hanbit.png" /></li>
-		<li><img src="images/acorn.png" /></li>
-		<li><img src="images/sist.png" /></li>
+		<li><img src="/images/namoolab.png" /></li>
+		<li><img src="/images/notepubs.png" /></li>
+		<li><img src="/images/hanbit.png" /></li>
+		<li><img src="/images/acorn.png" /></li>
+		<li><img src="/images/sist.png" /></li>
 	</ul>
 </div>
 </main>
@@ -479,7 +481,7 @@ AnswerisDao a = new JdbcAnswerisDao();
 
 <footer id="footer">
 	<div class="content-container">
-		<h2 id="footer-logo"><img src="images/logo-footer.png" alt="회사정보"></h2>
+		<h2 id="footer-logo"><img src="/images/logo-footer.png" alt="회사정보"></h2>
 
 		<div id="company-info">
 			<dl>

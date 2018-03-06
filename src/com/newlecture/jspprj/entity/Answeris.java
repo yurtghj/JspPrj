@@ -18,6 +18,7 @@ public class Answeris {
 	private String writerId;
 	private Date regDate;
 	private int hit;
+	private String attachedFile;
 	
 	public Answeris() {
 		// TODO Auto-generated constructor stub
@@ -61,7 +62,7 @@ public class Answeris {
 	
 	public Answeris(String id, String title, String language, String platform, String runtime, String errorCode,
 			String errorMessage, String situation, String triedToFix, String reason, String howToFix, String writerId,
-			Date regDate, int hit) {
+			Date regDate, int hit, String attachedFile) {
 		this.id = id;
 		this.title = title;
 		this.language = language;
@@ -76,6 +77,7 @@ public class Answeris {
 		this.writerId = writerId;
 		this.regDate = regDate;
 		this.hit = hit;
+		this.attachedFile = attachedFile;
 	}
 
 	public String getId() {
@@ -188,6 +190,18 @@ public class Answeris {
 
 	public void setHit(int hit) {
 		this.hit = hit;
+	}
+
+
+
+	public String getAttachedFile() {
+		return attachedFile;
+	}
+
+
+
+	public void setAttachedFile(String attachedFile) {
+		this.attachedFile = attachedFile;
 	}
 	
 	
