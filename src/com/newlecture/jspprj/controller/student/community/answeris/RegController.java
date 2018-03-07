@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,13 +26,18 @@ import com.newlecture.jspprj.entity.Answeris;
 //jsp는 요청할수x 요청은 controller에 매핑된 url
 
 @WebServlet("/student/community/answeris/reg")
-public class RegController extends HttpServlet
-{
+@MultipartConfig(
+		fileSizeThreshold = 1024*1024,
+		maxFileSize = 1024*1024*100, //100메가
+		maxRequestSize = 1024*1024*100*5 //100메가 5개까지
+		)
+public class RegController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		/*RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/student/community/answeris/reg.jsp");
 		dispatcher.forward(request, response);*/
+		
 
 		request.getContextPath();
 		
@@ -68,9 +74,10 @@ public class RegController extends HttpServlet
 		//request.getParts();
 		Part part = request.getPart("attached");
 		InputStream is = part.getInputStream();
+		String fname = part.getSubmittedFileName();
 		
 		byte buf[] = new byte[1024];
-		FileOutputStream fos = new FileOutputStream(pathSystem);
+		FileOutputStream fos = new FileOutputStream(pathSystem+File.separator+fname);
 		
 		int size = 0;
 		
@@ -80,6 +87,9 @@ public class RegController extends HttpServlet
 		is.close();
 		fos.close();
 		
+		answeris.setTitle(request.getParameter("title"));
+		answeris.setSituation(request.getParameter("situation"));
+		answeris.setAttachedFile(part.getSubmittedFileName());
 		
 		answeris.setWriterId("sist7979");
 		

@@ -63,7 +63,7 @@
 
 						
 
-						<li><a href="/member/agree">회원가입</a></li>
+						<li><a href="${ctx }/member/agree">회원가입</a></li>
 					</ul>
 				</nav>
 
