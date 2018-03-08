@@ -51,6 +51,8 @@
                      <td colspan="3" class="text-align-left indent">
                         
                         <select class="width-half" name="gender" required>
+                        <!-- 무조건 첫번째꺼 선택됨 -->
+                       <!--  순서와 상관없이 지정한거 선택되게 할시 -->
                            <option value="">선택</option>
                            <option value="남성">남성</option>
                            <option value="여성">여성</option>
@@ -93,3 +95,29 @@
          </fieldset>
       </form>
    </main>
+<script>
+    window.addEventListener("load", function () {
+        var idCheckButton = document.querySelector("#id-check-button");
+        var idInput = document.querySelector("input[name='id']");
+
+        idCheckButton.onclick = function () {
+            var memberId = idInput.value;
+            if (memberId == "") {
+                alert("아이디를 입력하세요!");
+                return;
+            }
+            var request = new XMLHttpRequest();
+            request.open("GET", "idcheck?id=" + memberId, false); //GET방식으로 idcheck에 동기화. false 시 동기화
+            request.send();//주라줘!
+
+            var member = JSON.parse(request.responseText); // JSON 문자열을 개체로 변환
+
+            if (member == null)
+                alert("사용할 수 있는 아이디입니다.");
+            else
+                alert("이미 " + member.name + "님이 사용중입니다.");
+        };
+
+
+    });
+</script>
